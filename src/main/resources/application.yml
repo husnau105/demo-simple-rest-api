@@ -1,0 +1,21 @@
+MYSQL_HOST: localhost
+MYSQL_PORT: 3306
+DB_USERNAME: root
+DB_PASSWORD: A1l2a1h1.
+spring:
+  jpa:
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        format_sql: true
+    show-sql: true
+    hibernate.ddl-auto: none
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT}/db_demo
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    initialization-mode: always
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+
+logging.level.liquibase: INFO
