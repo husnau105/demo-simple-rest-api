@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PreDestroy;
@@ -24,6 +25,7 @@ import java.util.List;
 import static javax.servlet.http.HttpServletResponse.*;
 
 @RestController
+@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')")
 @RequestMapping("/users")
 @Slf4j
 //@Scope(WebApplicationContext.SCOPE_SESSION)
@@ -61,7 +63,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Find Users by id",
-            notes = "Provide an id to look up specific user from the list")
+            notes = "Provide an id to ok up specific user from the list")
     @ApiResponses(value = {@ApiResponse(code = SC_OK, message = "Successful retrieval"),
                            @ApiResponse(code = SC_NOT_FOUND, message = "Requested user not found")})
     public ResponseEntity getUserById(@PathVariable(value = "id") Long id) {
