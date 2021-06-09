@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_PRODUCT_OWNER')")
+@PreAuthorize("hasRole('ROLE_PRODUCT_OWNER')")
 @RequestMapping("/products")
 @Slf4j
 public class ProductController {

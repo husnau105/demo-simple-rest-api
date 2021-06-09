@@ -29,10 +29,6 @@ public class HomeController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
-    @GetMapping("/")
-    public String home(){
-        return("<h1>Welcome<h1>");
-    }
 
     @PostMapping("/auth")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginForm loginRequest) throws Exception {

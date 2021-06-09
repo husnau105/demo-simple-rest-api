@@ -25,7 +25,7 @@ import java.util.List;
 import static javax.servlet.http.HttpServletResponse.*;
 
 @RestController
-@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')")
+@PreAuthorize("hasAnyRole('ROLE_CUSTOMER')")
 @RequestMapping("/users")
 @Slf4j
 //@Scope(WebApplicationContext.SCOPE_SESSION)
